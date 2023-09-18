@@ -22,15 +22,15 @@ public class Activity4_Java {
 
         //locate element using xpath
         String thirdHeader = driver.findElement(By.xpath("//h3[@id=\"third-header\"]")).getText();
-        System.out.println("Title of page is: "+ thirdHeader);
+        System.out.println("Text of third header is: "+ thirdHeader);
         String fifthHeader = driver.findElement(By.xpath("//h5[text()=\"Fifth header\"]")).getCssValue("color");
-        System.out.println("Title of page is: "+ fifthHeader);
+        System.out.println("Colour of fifth header is: "+ fifthHeader);
 
         // locate element using other locator
         String className = driver.findElement(By.xpath("//button[text()=\"Violet\"]")).getAttribute("class");
-        System.out.println("Title of page is: "+ className);
+        System.out.println("Classname is: "+ className);
         String btnText = driver.findElement(By.xpath("//button[text()=\"Grey\"]")).getText();
-        System.out.println("Title of page is: "+ btnText);
+        System.out.println("Text is: "+ btnText);
 
         //quit driver
         driver.quit();
