@@ -52,17 +52,21 @@ public class Activity21_Java {
         //wait for button to be clickable and click
         wait.until(ExpectedConditions.elementToBeClickable(By.id("actionButton")));
         System.out.println("Title of 1st child page is: "+ driver.getTitle());
+        String pageHeading = driver.findElement(By.className("content")).getText();
+        System.out.println("Page Heading: " + pageHeading);
+        String firstChild = driver.getWindowHandle();
         driver.findElement(By.id("actionButton")).click();
         wait.until(ExpectedConditions.numberOfWindowsToBe(3));
 
         //switch to 2nd new tab
-        String firstChild = driver.getWindowHandle();
-        Set<String> allWindowHandles = driver.getWindowHandles();
-        for(String window : allWindowHandles){
-            if (window != parentWindow && window != firstChild) {
-                driver.switchTo().window(window);
-            }
+        for(String handle : driver.getWindowHandles()) {
+            driver.switchTo().window(handle);
         }
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class=\"content\"]")));
+        System.out.println(driver.getCurrentUrl());
+        System.out.println("Title of 2nd child page is: "+ driver.getTitle());
+        pageHeading = driver.findElement(By.xpath("//*[@class=\"content\"]")).getText();
+        System.out.println("Page Heading: " + pageHeading);
 
         //quit driver
         driver.quit();
