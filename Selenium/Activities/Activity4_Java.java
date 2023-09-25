@@ -26,10 +26,11 @@ public class Activity4_Java {
         String fifthHeader = driver.findElement(By.xpath("//h5[text()=\"Fifth header\"]")).getCssValue("color");
         System.out.println("Colour of fifth header is: "+ fifthHeader);
 
-        // locate element using other locator
-        String className = driver.findElement(By.xpath("//button[text()=\"Violet\"]")).getAttribute("class");
+        //String className = driver.findElement(By.xpath("//button[text()=\"Violet\"]")).getAttribute("class");
+        String className = driver.findElement(By.className("violet")).getAttribute("class");
         System.out.println("Classname is: "+ className);
-        String btnText = driver.findElement(By.xpath("//button[text()=\"Grey\"]")).getText();
+        //String btnText = driver.findElement(By.xpath("//button[text()=\"Grey\"]")).getText();
+        String btnText = driver.findElement(By.className("grey")).getText();
         System.out.println("Text is: "+ btnText);
 
         //quit driver
